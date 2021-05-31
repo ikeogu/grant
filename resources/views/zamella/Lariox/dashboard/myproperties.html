@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Schchat - Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/Schchat-dashboard.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="border-right" id="sidebar-wrapper">
+            <div class="d-flex justify-content-center pt-5">
+                <div class="circular--portrait">
+                    <img src="./images/team-9.jpg" alt="">
+                </div>
+            </div>
+            <div class="text-center port py-2">
+                Welcome Zamella
+            </div>
+            <div class="Schchat-list-group list-group list-group-flush">
+                <a href="./index.html" class="myActive schchat-active list-group-item list-group-item-action bg-light"><i class="bi bi-house pr-2 h5"></i>Dashboard</a>
+                <a class="myActive list-group-item list-group-item-action text-decoration-none stretched-link" href="#submenu0" data-toggle="collapse" data-target="#submenu0"><i class="fas fa-home pr-2 h5"></i>Properties</a>
+                <div class="collapse submenu" id="submenu0" aria-expanded="false">
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href="./AvailableProperties.html"><i class="fas fa-plus pr-2 h5"></i>Available Properties</a>
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h6"></i>Rented/Sold Properties</a>
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h5"></i>For Rent</a>
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h5"></i>For Sale</a>
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href="./myproperties.html"><i class="fas fa-plus pr-2 h5"></i>Add New Properties</a>
+                </div>
+
+                <a class="myActive list-group-item list-group-item-action text-decoration-none stretched-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fas fa-users pr-2 h6"></i>Agents</a>
+                <div class="collapse submenu" id="submenu1" aria-expanded="false">
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h5"></i>Add Agents</a>
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h5"></i>All Agents</a>
+                </div>
+                <a class="myActive list-group-item list-group-item-action text-decoration-none stretched-link" href="#submenu2" data-toggle="collapse" data-target="#submenu2"><i class="fas fa-users pr-2 h5"></i>Clients</a>
+                <div class="collapse submenu" id="submenu2" aria-expanded="false">
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href="./create_school.html"><i class="fas fa-users pr-2 h5"></i>All Clients</a>
+                </div>
+                <a class="myActive list-group-item list-group-item-action text-decoration-none stretched-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fas fa-users pr-2 h6"></i>Request</a>
+                <div class="collapse submenu" id="submenu1" aria-expanded="false">
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h5"></i>New Request</a>
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h5"></i>My Request</a>
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h5"></i>Pending Request</a>
+                    <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link" href=""><i class="fas fa-plus pr-2 h5"></i>Request Feed</a>
+                </div>
+
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i class="bi bi-box-arrow-left pr-2 h5"></i>Logout</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <!--Nav bar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="" id="menu-toggle"><i class="bi bi-list mydashboard-bars h3 pr-2"></i></a>
+                        <img src=".././assets/images/logo/schchat-logo.png" class="pb-2" width="90" alt="">
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item active mr-5">
+                                <a class="nav-link" href="./index.html">Home<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item mr-4">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item mr-4">
+                                <a class="nav-link " href="#">Agent</a>
+                            </li>
+                            <li class="nav-item mr-4">
+                                <a class="nav-link" href="#">Services</a>
+                            </li>
+                            <li class="nav-item mr-4">
+                                <a class="nav-link " href="#">Properties</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="row">
+                        <form>
+                            <div class="input-group cx-prepand my-0 mx-4">
+                                <input type="text" class="form-control" name="text" placeholder="Search Property" required="">
+                                <div class="input-group-append cx-prepen-1 ">
+                                    <button type="submit"><i class="fa fa-search my-2  mx-3"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /End search button-->
+
+                    <div class="btn-group">
+                        <a href="#" class="myToggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="avatar shadow-sm">
+                                <img src="../dashboard/avatar/avatar.png" width="50" alt="">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu shadow">
+                            <div class="col-sm-12 py-3 bg-warning d-flex justify-content-center">
+                                <div class="circular--avatar">
+                                    <img src="./images/Schchat-image.png" alt="">
+                                </div>
+                                <span class="UserName">Daniel Bestman</span>
+                            </div>
+                            <a class="menu-link dropdown-item" href="#"><i class="bi bi-person-circle pr-2 h6"></i>My Account</a>
+                            <a class="menu-link dropdown-item" href="#"><i class="fas fa-home pr-2 h6"></i>My Properties</a>
+                            <a class="menu-link dropdown-item" href="#"><i class="bi bi-box-arrow-left pr-2 h6"></i>Sign Out</a>
+                        </div>
+                    </div>
+                    <a class="navbar-toggler outline-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="bi bi-caret-down-fill text-warning"></i>
+                    </a>
+                </div>
+            </nav>
+            <!--Nav bar ends here-->
+
+
+
+            <!--Registration form-->
+            <section class="log-1">
+                <div class="format-form py-5 ">
+                    <div class="container-fluid ">
+                        <div class="row">
+                            <div class="col-10 offset-1  justify-content-center  format  Schchat-padding-y border-0 shadow-lg ">
+                                <div class="row bg-succes d-flex justify-content-center ">
+                                    <i class="fas fa-user-circle my-3"></i>
+                                </div>
+                                <div class="row justify-content-center p-5">
+                                    <div class="col-10 mt-4 p-4 bg-card">
+                                        <div class="text-center mx-1"><strong> Add Property</strong></div>
+                                        <form class="p-4">
+                                            <div class="form-group form-row my-3">
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-id-badge hk"></i></span>
+                                                        <input type="text" class="bg-light shadow-sm Schchat-form-input form-control" placeholder="Property name" aria-label="Property name" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group form-row mb-0">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-search-location hk"></i></span>
+                                                        <select class="bg-light shadow-sm Schchat-form-input form-control" id="exampleFormControlSelect1">
+                                                            <option>Country</option>
+                                                            <option>Nigeria</option>
+                                                            <option>Ghane</option>
+                                                            <option>United Kingdom</option>
+                                                            <option>USA</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-search-location hk"></i></span>
+                                                        <select class="bg-light shadow-sm Schchat-form-input form-control" id="exampleFormControlSelect1">
+                                                            <option>State/Province</option>
+                                                            <option>Nigeria</option>
+                                                            <option>Ghane</option>
+                                                            <option>United Kingdom</option>
+                                                            <option>USA</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row mb-0">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-search-location hk"></i></span>
+                                                        <select class="bg-light shadow-sm Schchat-form-input form-control" id="exampleFormControlSelect1">
+                                                            <option>City</option>
+                                                            <option>Nigeria</option>
+                                                            <option>Ghane</option>
+                                                            <option>United Kingdom</option>
+                                                            <option>USA</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-map-marker-alt hk"></i></span>
+                                                        <select class="bg-light shadow-sm Schchat-form-input form-control" id="exampleFormControlSelect1">
+                                                            <option>Location</option>
+                                                            <option>Nigeria</option>
+                                                            <option>Ghane</option>
+                                                            <option>United Kingdom</option>
+                                                            <option>USA</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row mb-0">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-map-marker-alt hk"></i></span>
+                                                        <input type="text" class="bg-light shadow-sm Schchat-form-input form-control" placeholder="Nearest Major Road" aria-label="Nearest Major Road" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-map-marker-alt hk"></i></span>
+                                                        <input type="text" class="bg-light shadow-sm Schchat-form-input form-control" placeholder="Nearest Landmark" aria-label="Nearest Landmark" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row mb-0">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-home hk"></i></span>
+                                                        <input type="text" class="bg-light shadow-sm Schchat-form-input form-control" placeholder="No. of Bedroom" aria-label="No. of Bedroom" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="input-group input-group-lg mk">
+                                                        <span class="shadow-sm input-group-text Schchat-border-radius-right Schchat-form-control" id="basic-addon1"><i class="fas fa-home hk"></i></span>
+                                                        <input type="text" class="bg-light shadow-sm Schchat-form-input form-control" placeholder="No. of Toilet" aria-label="No. of Toilet" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group form-row mb-0">
+                                                <div class="col-md-12 mb-3 uk">
+                                                    <label for="exampleFormControlTextarea4">Property Address</label>
+                                                    <textarea class="form-control mk" id="exampleFormControlTextarea4" rows="3"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row mb-0">
+                                                <div class="col-md-12 mb-3 uk">
+                                                    <label for="exampleFormControlTextarea4">Property Description</label>
+                                                    <textarea class="form-control mk" id="exampleFormControlTextarea4" rows="4"></textarea>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group form-row mb-0">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="userId">Property Photos</label>
+                                                    <div class="input-group input-group-lg">
+                                                        <input type="file" id="userId" name="userId">
+                                                    </div>
+                                                    <i class="fas fa-image nk"></i>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="userId">More Photos</label>
+                                                    <div class="input-group input-group-lg">
+                                                        <input type="file" id="userId" name="userId" multiple>
+                                                    </div>
+                                                    <div class="col-md-12 p-1">
+                                                        <i class="fas fa-image nk"></i>
+                                                        <i class="fas fa-image nk"></i>
+                                                        <i class="fas fa-image nk"></i>
+                                                        <i class="fas fa-image nk"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group d-flex justify-content-center my-4">
+                                                <button type="submit" class="btn btn-warning Schchat-warning-btn Schchat-Ubuntu"><i class="fas fa-upload text-white pr-2"></i>Upload Property</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+
+    <footer>
+        <div class="container-fluid bg-white py-2 text-right text-dark">
+
+            <span class="">Zamella.com &copy; 2021</span>
+
+        </div>
+    </footer>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+    <!-- Search Icon javascript -->
+    <script>
+        function openSearch() {
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function closeSearch() {
+            document.getElementById("myOverlay").style.display = "none";
+        }
+    </script>
+
+    <!-- Search Icon Javascript end -->
+
+
+
+</body>
+
+</html>

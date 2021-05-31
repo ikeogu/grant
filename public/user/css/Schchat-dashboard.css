@@ -1,0 +1,473 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+body {
+    overflow-x: hidden;
+    background: #f7f7f7!important;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+    background: #fff!important;
+    /* position: fixed !important; */
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+.Schchat-list-group a {
+    background: #fff!important;
+    border: 0.05rem solid #f7f7f7!important;
+    color: #07055c !important;
+    font-weight: 500;
+}
+
+a.list-group-collapse {
+    color: #07055c!important;
+    font-weight: 400;
+    background-color: #57575f;
+}
+
+.myActive.schchat-active {
+    color: #07055c!important;
+    background: #fff!important;
+    border-left: solid 5px #f9a725!important;
+    font-weight: 600;
+}
+
+.Schchat-list-group a:hover {
+    font-weight: 600;
+    color: #f9a725!important;
+    background: #fff!important;
+    border-left: solid 5px #f9a725!important;
+    /* border:0!important; */
+}
+
+.circular--portrait {
+    position: relative;
+    width: 90px;
+    border: solid 2px #f9a725;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    color: #000!important;
+}
+
+.circular--portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: inline;
+}
+
+.Circular--icon {
+    position: relative;
+    width: 70px;
+    border: solid 2px #f9a725;
+    height: 70px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.Circular--icon i {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    font-size: 30px!important;
+    color: #07055c!important;
+}
+
+.myFonts--size {
+    font-size: 15px!important;
+    color: #07055c !important;
+    font-weight: 600;
+}
+
+.myBtn-block {
+    padding-right: 100px!important;
+    padding-left: 100px!important;
+}
+
+.circular--avatar {
+    position: relative;
+    width: 50px;
+    border: solid 2px #ffffff;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.circular--avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.UserName {
+    color: #fff!important;
+    font-weight: 600!important;
+    padding-top: 10px!important;
+    padding-left: 5px!important;
+}
+
+.dropdown-item:hover {
+    background: #f9a725!important;
+    color: #fff!important;
+    font-weight: 600!important;
+}
+
+#menu-toggle i {
+    cursor: pointer!important;
+}
+
+#menu-toggle i:hover {
+    color: #f9a725!important;
+    transition: ease all .5s;
+}
+
+.Schcat-sidebar-img img {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0.5em;
+    border: 5px solid white;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #f9a725;
+    background-clip: padding-box;
+    /* border: 0.05em solid #eeeeee; */
+    border-radius: 10px!important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-button:single-button {
+    background-color: #ffffff;
+    display: block;
+    border-style: solid;
+    height: 13px;
+    width: 16px;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #555555 transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+    border-color: transparent transparent #777777 transparent;
+}
+
+
+/* Down */
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-width: 8px 8px 0 8px;
+    border-color: #555555 transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+    border-color: #777777 transparent transparent transparent;
+}
+
+
+/* Scroll Bar End */
+
+
+/* Search Button start */
+
+::-webkit-input-placeholder {
+    color: #000;
+}
+
+::-moz-placeholder {
+    color: #000;
+}
+
+.search-focus {
+    background: url(http://www.iconsdb.com/icons/preview/white/search-12-xxl.png) no-repeat left;
+    border: 1px solid #ccc;
+    outline: none;
+    background-size: 22px;
+    background-position: 13px;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    padding: 25px;
+    transition: all .5s;
+}
+
+.search-focus:focus {
+    width: 300px;
+    padding-left: 50px;
+}
+
+.search-hover {
+    background: url(http://www.iconsdb.com/icons/preview/white/search-12-xxl.png) no-repeat left;
+    border: 1px solid #ccc;
+    outline: none;
+    background-size: 22px;
+    background-position: 13px;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    padding: 25px;
+    transition: all .5s;
+}
+
+.search-hover:hover {
+    width: 300px;
+    padding-left: 50px;
+}
+
+.search-click {
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+}
+
+.search-click input {
+    background: transparent;
+    border: 0!important;
+    outline: none;
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0%;
+    padding: 10px;
+}
+
+.mySearch-Btn {
+    border-top-right-radius: 5px!important;
+    border-bottom-right-radius: 5px!important;
+}
+
+.openBtn {
+    /* background: #f1f1f1; */
+    border: none;
+    padding: 10px 15px!important;
+    font-size: 20px;
+    cursor: pointer;
+    border: 0!important;
+    outline: 0!important;
+    border-color: 0!important;
+}
+
+.openBtn:hover {
+    background: #bbb;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.overlay-content {
+    position: relative;
+    top: 46%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+
+.overlay .closebtn:hover {
+    color: #ccc;
+}
+
+.overlay input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    border-top-left-radius: 5px!important;
+    border-bottom-left-radius: 5px!important;
+    background: white;
+    outline: 0!important;
+}
+
+.overlay input[type=text]:hover {
+    background: #f1f1f1;
+}
+
+.overlay button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    outline: 0!important;
+}
+
+.overlay button:hover {
+    background: #bbb;
+}
+
+.card-footer.Schchat-card-footer {
+    background: #fff!important;
+    border-top: 1px solid #f9a725!important;
+}
+
+.submenu a {
+    background-color: #e8e8e8!important;
+}
+
+.port {
+    color: #07055c !important;
+    font-weight: 600;
+}
+
+
+/* Search Button Css settings end */
+
+.log-1 {
+    background-image: url(../images/Img/architecture-1867187_1920.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: unset;
+}
+
+.log-2 {
+    background-color: #f7f7f7;
+}
+
+.hk {
+    color: #24A148 !important;
+    font-size: 20px !important;
+}
+
+.mk {
+    border: 1px solid #24A148;
+    border-radius: 15px !important;
+}
+
+.mk span i {
+    border-radius: 15px 0px 0px 15px !important;
+}
+
+.mk input {
+    border-radius: 0px 15px 15px 0px !important;
+    background-color: #fff !important;
+}
+
+.mk select {
+    border-radius: 0px 15px 15px 0px !important;
+    background-color: #fff !important;
+}
+
+.mk input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.uk textarea:focus {
+    box-shadow: none;
+    outline: #24A148;
+}
+
+.nk {
+    color: #24A148 !important;
+    font-size: 60px !important;
+}
+
+.gun {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gun a i {
+    /* padding-right: 40px !important; */
+}
+
+.not {
+    font-size: 15px !important;
+}
+
+.hot {
+    font-weight: 700;
+    font-size: 20px !important;
+}
+
+.nun button {
+    margin-right: 70px;
+}
+
+.you {
+    font-weight: 500;
+}
+
+.page-item.active .page-link {
+    background-color: #07055c !important;
+    border-color: #07055c !important;
+    color: #ffffff;
+}
+
+.page-link {
+    color: #07055c;
+    background-color: #ffffff;
+}
+
+.page-item.active .page-link::focus {
+    box-shadow: none;
+    border-color: #ffffff;
+}
