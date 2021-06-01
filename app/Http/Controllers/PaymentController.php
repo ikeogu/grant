@@ -96,8 +96,12 @@ class PaymentController extends Controller
             $payment = Payment::where('reference', $tranx['data']['metadata']['reference'])->first();
             $payment->status = 'success';
             $payment->save();
+
             $intrest = Interest::where('user_id', Auth::user()->id)->where('property_id', $payment->property_id)->first();
-            $intrest->delete();
+            if($intrest){
+                $intrest->delete();
+
+            }
 
             $pro = Property::find($payment->property_id);
             $pro->status = 'sold';

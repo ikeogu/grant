@@ -133,7 +133,7 @@
         </div> --}}
         <p>
             <button class="btn btn-success btn-lg btn-block" type="submit" value="Pay Now!">
-                <i class="fa fa-plus-circle fa-lg"></i> Pay Now!
+                <i class="fa  fa-lg"></i> Pay Now!
             </button>
         </p>
     </form>

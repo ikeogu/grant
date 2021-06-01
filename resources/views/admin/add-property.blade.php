@@ -47,7 +47,7 @@
                        <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-residence" role="tabpanel" aria-labelledby="pills-residence-tab">
                             	<form action="{{ route('upload-property') }}" enctype="multipart/form-data" method="post">
-									@csrf
+													@csrf
 						            <div class="row">
 
 							            <div class="col-12">
@@ -220,7 +220,7 @@
 
 					      <div class="tab-pane fade " id="pills-land" role="tabpanel" aria-labelledby="pills-land-tab">
 					      		<form action="{{ route('upload-property') }}" enctype="multipart/form-data" method="post">
-									@csrf
+											@csrf
 						        	<div class="row">
 							            <div class="col-12">
 							              <div class="form-group">
@@ -231,8 +231,8 @@
 							              	<li class="text-danger">{{ $message }}</li>
 							              @enderror
 							            </div>
-						<form action="{{ route('upload-property') }}" enctype="multipart/form-data" method="post">
-									@csrf
+					            	<form action="{{ route('upload-property') }}" enctype="multipart/form-data" method="post">
+								       	@csrf
 						            <div class="row">
 
 							            <div class="col-12">
@@ -397,155 +397,156 @@
 						            	<input type="hidden" name="property_type" value="building">
 			        					<button type="submit" class="btn btn-primary btn-block">Submit</button>
 			        				</div>
-						        </form>	            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">Area (Sq Ft) <span class="text-danger">*</span></label>
-							                <input type="number" name="area" class="form-control" placeholder="e.g 3" value="{{ old('area') }}" required>
-							              </div>
-							              @error('area')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">Listing Type <span class="text-danger">*</span></label>
-							                <select class="form-control" required name="list_type">
-							                	<option selected disabled>Select Type</option>
-							                	<option value="sale" @if(old('list_type')=='sale') selected @endif>Sales</option>
-							                	<option value="rent" @if(old('list_type')=='rent') selected @endif>Rent</option>
-							                </select>
-							              </div>
-							              @error('list_type')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">Length (Ft)</label>
-							                <input type="number" name="length" class="form-control" placeholder="e.g 100" value="{{ old('length') }}" required>
-							              </div>
-							              @error('length')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">Width (Ft)</label>
-							                <input type="number" name="width" class="form-control" placeholder="e.g 3" value="{{ old('width') }}" required>
-							              </div>
-							              @error('width')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-12">
-							              <div class="form-group mb-0">
-							                <label class="form-label">Property Description <span class="text-danger">*</span></label>
-							                <textarea name="detail" rows="5"class="form-control" placeholder="A Tastely Furnished 3 bedroom bungalow seated in a 100 sq ft land space with a higly raised fence and close to major road." required >{{ old('details')}}</textarea>
-							              </div>
-							              @error('details')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-12">
-							              <div class="form-group">
-							                <label class="form-label">Property Address <span class="text-danger">*</span></label>
-							                <textarea class="form-control" name="address" placeholder="eg. 10 Hilton Street, Off Juvenile Road, Port Harcourt" required>{{ old('address') }}</textarea>
-							              </div>
-							              @error('address')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">State <span class="text-danger">*</span></label>
-							               <select class="form-control" name="state" required>
-							               		<option selected disabled>Select State</option>
-							               		@foreach($states as $state)
-							               			<option value="{{ $state->id }}">{{ $state->name }}</option>
-							               		@endforeach
-							               </select>
-							              </div>
-							              @error('state')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">City <span class="text-danger">*</span></label>
-							                <input type="text" name="city" class="form-control" placeholder="e.g Port Harcourt" value="{{ old('city') }}" required>
-							              </div>
-							              @error('city')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-sm-6 col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">Location <span class="text-danger">*</span></label>
-							                <input type="text" name="location" class="form-control" placeholder="e.g Rukpoku" value="{{ old('location') }}" required>
-							              </div>
-							              @error('location')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">Nearest Major Road </label>
-							                <input type="text" name="major_road" class="form-control" placeholder="e.g Airport Road" value="{{ old('major_road') }}">
-							              </div>
-							              @error('major_road')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">Nearest Landmark</label>
-							                <input type="text" name="landmark" class="form-control" placeholder="e.g Police Station" value="{{ old('landmark') }}">
-							              </div>
-							              @error('landmark')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-md-6">
-							              <div class="form-group">
-							                <label class="form-label">Price</label>
-							                <input type="number" name="price" class="form-control" placeholder="e.g 600,000" value="{{ old('price') }}">
-							              </div>
-							              @error('price')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							            <div class="col-12">
-							              <div class="form-group">
-							                <label class="form-label">Cover Photo <span class="text-danger">*</span></label>
-							                <input type="file" name="cover_photo" class="form-control">
-							              </div required>
-							              @error('cover_photo')
-							              	<li class="text-danger">{{ $message }}</li>
-							              @enderror
-							            </div>
-							           <div class="col-12">
-							           		<label>Other Photos</label>
-
-				                           <div class="controls2 row">
-					                            <div class="input-group mb-3 col-12 entry2">
-					                              <input type="file" name="other_photos[]" class="form-control" placeholder="more photo" aria-label="Recipient's username" aria-describedby="basic-addon3" style="height: 50px;" required>
-					                              <div class="input-group-append">
-					                                <span class="input-group-text add-more btn-plus" id="basic-addon3" data-toggle="tooltip" data-placement="top" title="Add More Photo"><i class="fa fa-plus-circle"></i></span>
-					                              </div>
-					                            </div>
-					                            @error('other_photos')
-									              	<li class="text-danger">{{ $message }}</li>
-									              @enderror
-				                            </div>
-				                        </div>
-
-						            </div>
-						            <div class="col-12">
-						            	<input type="hidden" name="property_type" value="land">
-			        					<button type="submit" class="btn btn-primary btn-block">Submit</button>
-			        				</div>
 						        </form>
-					      </div>
+										 <div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Area (Sq Ft) <span class="text-danger">*</span></label>
+													<input type="number" name="area" class="form-control" placeholder="e.g 3" value="{{ old('area') }}" required>
+												</div>
+												@error('area')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Listing Type <span class="text-danger">*</span></label>
+													<select class="form-control" required name="list_type">
+														<option selected disabled>Select Type</option>
+														<option value="sale" @if(old('list_type')=='sale') selected @endif>Sales</option>
+														<option value="rent" @if(old('list_type')=='rent') selected @endif>Rent</option>
+													</select>
+												</div>
+												@error('list_type')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Length (Ft)</label>
+													<input type="number" name="length" class="form-control" placeholder="e.g 100" value="{{ old('length') }}" required>
+												</div>
+												@error('length')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Width (Ft)</label>
+													<input type="number" name="width" class="form-control" placeholder="e.g 3" value="{{ old('width') }}" required>
+												</div>
+												@error('width')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-12">
+												<div class="form-group mb-0">
+													<label class="form-label">Property Description <span class="text-danger">*</span></label>
+													<textarea name="detail" rows="5"class="form-control" placeholder="A Tastely Furnished 3 bedroom bungalow seated in a 100 sq ft land space with a higly raised fence and close to major road." required >{{ old('details')}}</textarea>
+												</div>
+												@error('details')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-12">
+												<div class="form-group">
+													<label class="form-label">Property Address <span class="text-danger">*</span></label>
+													<textarea class="form-control" name="address" placeholder="eg. 10 Hilton Street, Off Juvenile Road, Port Harcourt" required>{{ old('address') }}</textarea>
+												</div>
+												@error('address')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">State <span class="text-danger">*</span></label>
+													<select class="form-control" name="state" required>
+														<option selected disabled>Select State</option>
+														@foreach($states as $state)
+															<option value="{{ $state->id }}">{{ $state->name }}</option>
+														@endforeach
+													</select>
+												</div>
+												@error('state')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">City <span class="text-danger">*</span></label>
+													<input type="text" name="city" class="form-control" placeholder="e.g Port Harcourt" value="{{ old('city') }}" required>
+												</div>
+												@error('city')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-sm-6 col-md-6">
+												<div class="form-group">
+													<label class="form-label">Location <span class="text-danger">*</span></label>
+													<input type="text" name="location" class="form-control" placeholder="e.g Rukpoku" value="{{ old('location') }}" required>
+												</div>
+												@error('location')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Nearest Major Road </label>
+													<input type="text" name="major_road" class="form-control" placeholder="e.g Airport Road" value="{{ old('major_road') }}">
+												</div>
+												@error('major_road')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Nearest Landmark</label>
+													<input type="text" name="landmark" class="form-control" placeholder="e.g Police Station" value="{{ old('landmark') }}">
+												</div>
+												@error('landmark')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Price</label>
+													<input type="number" name="price" class="form-control" placeholder="e.g 600,000" value="{{ old('price') }}">
+												</div>
+												@error('price')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-12">
+												<div class="form-group">
+													<label class="form-label">Cover Photo <span class="text-danger">*</span></label>
+													<input type="file" name="cover_photo" class="form-control">
+												</div required>
+												@error('cover_photo')
+													<li class="text-danger">{{ $message }}</li>
+												@enderror
+											</div>
+											<div class="col-12">
+												<label>Other Photos</label>
+
+																<div class="controls2 row">
+																	<div class="input-group mb-3 col-12 entry2">
+																		<input type="file" name="other_photos[]" class="form-control" placeholder="more photo" aria-label="Recipient's username" aria-describedby="basic-addon3" style="height: 50px;" required>
+																		<div class="input-group-append">
+																			<span class="input-group-text add-more btn-plus" id="basic-addon3" data-toggle="tooltip" data-placement="top" title="Add More Photo"><i class="fa fa-plus-circle"></i></span>
+																		</div>
+																	</div>
+																	@error('other_photos')
+															<li class="text-danger">{{ $message }}</li>
+														@enderror
+																</div>
+														</div>
+
+										</div>
+										<div class="col-12">
+											<input type="hidden" name="property_type" value="land">
+										<button type="submit" class="btn btn-primary btn-block">Submit</button>
+									</div>
+								</form>
+						</div>
 
 
 

@@ -27,9 +27,9 @@
                         </div>
                         <div class="card-footer Schchat-card-footer py-3">
                             <div class="d-flex justify-content-center">
-                                <button class="btn myBtn-block Schchat-Secondary">
+                                <a class="btn myBtn-block Schchat-Secondary" href="{{route('my_pro')}}">
                                     <i class="bi bi-box-arrow-right pr-2 text-white"></i>view
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -53,16 +53,16 @@
                                     </div>
                                     <div class="col-12">
                                         <span class="badge badge-danger mb-2 mot ">Total:
-                                            {{ Auth::user()->purchased->count() }}</span>
+                                            {{ Auth::user()->payment->where('status','success')->count() }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer Schchat-card-footer py-3">
                             <div class="d-flex justify-content-center">
-                                <button class="btn myBtn-block Schchat-Secondary">
+                                <a class="btn myBtn-block Schchat-Secondary" href="{{route('purchased')}}">
                                     <i class="bi bi-box-arrow-right pr-2 text-white"></i>view
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -93,9 +93,9 @@
                         </div>
                         <div class="card-footer Schchat-card-footer py-3">
                             <div class="d-flex justify-content-center">
-                                <button class="btn myBtn-block Schchat-Secondary">
+                                <a class="btn myBtn-block Schchat-Secondary" href="{{route('my-interests')}}">
                                     <i class="bi bi-box-arrow-right pr-2 text-white"></i>view
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

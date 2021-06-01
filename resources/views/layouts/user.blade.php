@@ -41,8 +41,7 @@
                 Welcome {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
             </div>
             <div class="Schchat-list-group list-group list-group-flush">
-                <a href="#"
-                    class="myActive schchat-active list-group-item list-group-item-action bg-light"><i
+                <a href="{{route('dashboard')}}" class="myActive schchat-active list-group-item list-group-item-action bg-light"><i
                         class="bi bi-house pr-2 h5"></i>Dashboard</a>
                 <a class="myActive list-group-item list-group-item-action text-decoration-none stretched-link"
                     href="#submenu0" data-toggle="collapse" data-target="#submenu0"><i
@@ -50,18 +49,18 @@
                 <div class="collapse submenu" id="submenu0" aria-expanded="false">
 
                     <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link"
-                        href="{{ route('addPro') }}"><i class="fas fa-plus pr-2 h5"></i>Add New Properties</a>
+                        href="{{ route('addPro') }}">Add New Properties</a>
                     <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link"
-                        href="{{ route('my_pro') }}"><i class="fas fa-plus pr-2 h5"></i>Added Properties</a>
+                        href="{{ route('my_pro') }}"></i>Added Properties</a>
                 </div>
 
                 <a class="myActive list-group-item list-group-item-action text-decoration-none stretched-link" href="#"
                     data-toggle="collapse" data-target="#submenu1"><i class="fas fa-users pr-2 h6"></i>My Intrest</a>
                 <div class="collapse submenu" id="submenu1" aria-expanded="false">
                     <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link"
-                        href="{{ route('my-interests') }}"><i class="fas fa-plus pr-2 h5"></i>Wish List</a>
+                        href="{{ route('my-interests') }}"></i>Wish List</a>
                     <a class="list-group-item list-group-collapse list-group-flush text-decoration-none stretched-link"
-                        href="{{route('purchased')}}"><i class="fas fa-plus pr-2 h5"></i>Purchased properties</a>
+                        href="{{ route('purchased') }}"></i>Purchased properties</a>
                 </div>
 
 
