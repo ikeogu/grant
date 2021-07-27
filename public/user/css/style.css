@@ -34,7 +34,7 @@
 
         .nav-login {
             border-radius: 18px 18px 18px 18px;
-            background-color: #28a745;
+            background-color: #FFB719;
             color: white!important;
             border-color: transparent;
             padding: .3rem 1.5rem;
@@ -45,7 +45,7 @@
         .nav-login:hover {
             background-color: white;
             color: #28a745!important;
-            border-color: #28a745;
+            border-color: #FFB719;
         }
 
         .desktop-search-area {
@@ -78,15 +78,27 @@
             height: 40px;
             /*width: 200px;*/
             border-radius: 50px 50px 50px 50px;
+            background-color: #FFB719;
+            color: white;
+            border-color: transparent;
+        }
+        .button-2 a {
+            height: 40px;
+            /*width: 200px;*/
+            border-radius: 50px 50px 50px 50px;
             background-color: #28a745;
             color: white;
             border-color: transparent;
         }
-
+         .button-2 a:hover {
+            background-color: white;
+            color: #28a745;
+            border-color: #28a728;
+        }
         .button-1 a button:hover {
             background-color: white;
             color: #28a745;
-            border-color: #28a745;
+            border-color: #FFB719;
         }
 
         .peak {
@@ -536,7 +548,7 @@
         }
 
         .btn-navy {
-            background-color: #28a745
+            background-color: #FFB719;
         }
 
         .carousel-indicators-2 li {
@@ -894,7 +906,7 @@
         }
 
         .nth-2 {
-            background-color: #28a745
+            background-color: #FFB719;
             border: none;
             color: #07055c !important;
         }

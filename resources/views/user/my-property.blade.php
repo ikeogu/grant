@@ -13,7 +13,7 @@
                         <div class="row p-2 justify-content-center ">
                             <div class="col-xs-6 col-sm-6 col-md-2 bg-transperent p-0 lod shadow">
                                 <img class="img-radius"
-                                    src="{{ asset('storage/properties/cover_images/' . $item->cover_photo) }}" alt="">
+                                    src="{{ asset('storage/properties/cover_images/' . $item->cover_photo) }}" alt="" >
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-7 bg-so p-0 shadow">
                                 <div class=" px-2 mx-5 mt-3 justify-content-center ">

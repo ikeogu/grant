@@ -1,237 +1,281 @@
-@extends('layouts.front')
+@extends('layouts.app')
 
 @section('content')
-@section('title', 'Real Estate')
-    <section class="hero-wrap hero-wrap-2"
-        style="background-image: url({{ asset('assets/images/bg_1.jpg') }}); background-position: center;"
-        data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-                <div class="col-md-9 ftco-animate pb-0 text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                                    class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a
-                                href="{{ route('properties') }}">Properties</a> </p>
-                    <h1 class="mb-3 bread">Properties</h1>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    @include('layouts.shared.search-area')
-
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-                    <span class="subheading"> <?php echo isset($_GET['keyword']) ? 'search result' : 'What we
-                        offer'; ?> </span>
-                    <h2 class="mb-2"><?php if (isset($_GET['keyword'])): ?> <?php echo $properties->count(); ?> <?php echo $properties->count() > 1
-                        ? ' properties ' : 'property'; ?> found<?php else: ?>
-                        Properties <?php endif; ?></h2>
-                </div>
-            </div>
-            <div class="row ftco-animate">
-                <div class="col-md-12">
-                    <div class="row">
-                        @foreach ($properties as $key => $property)
-                            @auth
-                                @php
-                                    // dd($interestArr);
-                                    if (in_array($property->id, $interestArr)) {
-                                        $prop_id = array_search($property->id, $interestArr);
-                                        // dd($prop_id);
-                                    } else {
-                                        $prop_id = '';
-                                    }
-                                @endphp
-                            @endauth
-                            <div class="col-md-3">
-                                <div class="property-wrap ftco-animate">
-                                    <a href="#" class="img"
-                                        style="background-image: url({{ asset('storage/properties/cover_images/' . $property->cover_photo) }});">
-                                        <div class="rent-sale">
-                                            <span
-                                                class="{{ $property->list_type }}">{{ ucfirst($property->list_type) }}</span>
-                                        </div>
-                                        <p class="price"><span class="orig-price">&#x20A6;
-                                                {{ number_format($property->price) }}</span></p>
-                                    </a>
-                                    <div class="text text-center">
-                                        <ul class="property_list">
-                                            @if ($property->property_type == 'building')
-                                                <li><span class="fa fa-bed"></span>{{ $property->beds }}</li>
-                                                <li><span class="fa fa-bath"></span>{{ $property->baths }}</li>
-                                            @else
-
-                                                <li><span class="flaticon-floor-plan"></span>{{ $property->area }}sqft
-                                                </li>
-                                            @endif
-                                        </ul>
-                                        <h3><a href="#">{{ $property->title }}</a></h3>
-                                        <span class="location">{{ $property->location }}, {{ $property->city }}</span>
-
-                                        <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-                                            <span class="fa fa-link"></span>
-                                        </a>
-                                        <div class="list-team d-flex align-items-center mt-2 pt-2 border-top row">
-                                            <div class="col-6 text-center ">
-                                                @guest
-                                                    <button type="button" data-toggle="modal"
-                                                        data-target="#like-prop-{{ $property->id }}" href="#"
-                                                        class="btn btn-primary curve-btn">Like <i
-                                                            class="fa fa-heart"></i></button>
-                                                @else
-                                                    {{-- <button id="unlike-{{ $property->id }}" code="{{ $property->code }}" prop-id="{{ $property->id }}" type="button" class="btn btn-primary curve-btn unlike-prop d-none">unlike <i class="fa fa-thumbs-down"></i></button> --}}
-                                                    @if ($prop_id > 0)
-                                                        <button type="button"
-                                                            class="btn btn-primary curve-btn property-actions"><span
-                                                                class="unlike-prop text-white" id="like-{{ $property->id }}"
-                                                                code="{{ $property->code }}"
-                                                                prop-id="{{ $prop_id }}">Unlike <i
-                                                                    class="fa fa-thumbs-down"></i></span></button>
-                                                    @else
-                                                        <button type="button"
-                                                            class="btn btn-primary curve-btn property-actions"><span
-                                                                class="like-prop text-white" id="like-{{ $property->id }}"
-                                                                code="{{ $property->code }}"
-                                                                prop-id="{{ $prop_id }}">Like <i
-                                                                    class="fa fa-heart"></i></span></button>
-                                                    @endif
-                                                @endguest
-                                            </div>
-                                            <div class="col-6 text-center">
-                                                <a href="{{ route('property-detail', $property->slug) }}"
-                                                    class="btn btn-success curve-btn">View <i class="fa fa-eye"></i></a>
-                                            </div>
-
-                                        </div>
-                                        {{-- <div class="list-team d-flex align-items-center mt-2 pt-2 border-top row">
-                                        <div class="d-flex align-items-center">
-                                            <div class="img" style="background-image: url({{ asset('assets/images/person_1.jpg')}});"></div>
-                                            <h3 class="ml-2">John Dorf</h3>
-                                        </div>
-                                        <span class="text-right">2 weeks ago</span>
-                                    </div> --}}
+@section('title', 'Zamella')
+    <section>
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block" src="{{ asset('user/Img/architecture-1836070_1920.jpg') }}" alt="First slide">
+                    <div class="carousel-caption  d-md-block">
+                        <div class="col-xs-10 col-md-5 ml-auto">
+                            <div class="card my-5">
+                                <div class="col-12">
+                                    <div class="mx-3 pt-4 dell"><strong>4 Bedroom Bungalow </strong></div>
+                                    <div>Trans Amadi Odili Road PHC</div>
+                                    <div>₦400,000</div>
+                                    <div class="row button-1 justify-content-center my-4 mx-2 float-right">
+                                        <a href="#"><button type="button" class="btn">View Property</button></a>
                                     </div>
                                 </div>
                             </div>
-
-                        @endforeach
+                        </div>
                     </div>
-
-                    <div class="text-center col-12 justify-content-center">
-                        {{ $properties->links() }}
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block " src="{{ asset('user/Img/image_5.jpg') }}" alt="Second slide">
+                    <div class="carousel-caption  d-md-block">
+                        <div class="col-xs-10 col-md-5 ml-auto">
+                            <div class="card my-5">
+                                <div class="col-12">
+                                    <div class="mx-3 pt-4 dell"><strong>4 Bedroom Bungalow </strong></div>
+                                    <div>Trans Amadi Odili Road PHC</div>
+                                    <div>₦400,000</div>
+                                    <div class="row button-1 justify-content-center my-4 mx-2 float-right">
+                                        <a href="#"><button type="button" class="btn">View Property</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
-        </div>
-
-        @foreach ($properties as $property)
-            <!-- Modal -->
-            <div class="modal fade" id="like-prop-{{ $property->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            {{-- <h5 class="modal-title text-center" id="exampleModalLabel">Sign in first</h5> --}}
-                            <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                        <div class="modal-body">
-                            <h5 class="text-center">Fill in your details. </h5><small class="text-center">Or <a
-                                    href="{{ route('login') }}" style="font-weight: bold;">Login</a> for a better
-                                experience</small>
-                            <form action="{{ route('send-message') }}" method="post">
-                                @csrf
-                                <div class="form-group">
-                                    <input type="text" name="firstname" class="form-control" @auth
-                                        value="{{ Auth::user()->firstname }}" @else value="{{ old('firstname') }}"
-                                        @endauth placeholder="First Name" required>
+                <div class="carousel-item">
+                    <img class="d-block" src="{{ asset('user/Img/image_6.jpg') }}" alt="Third slide">
+                    <div class="carousel-caption  d-md-block">
+                        <div class="col-xs-10 col-md-5 ml-auto">
+                            <div class="card my-5">
+                                <div class="col-12">
+                                    <div class="mx-3 pt-4 dell"><strong>4 Bedroom Bungalow </strong></div>
+                                    <div>Trans Amadi Odili Road PHC</div>
+                                    <div>₦400,000</div>
+                                    <div class="row button-1 justify-content-center my-4 mx-2 float-right">
+                                        <a href="#"><button type="button" class="btn">View Property</button></a>
+                                    </div>
                                 </div>
-                                @error('firstname')
-                                    <li class="text-danger">{{ $message }}</li>
-                                @enderror
-                                <div class="form-group">
-                                    <input type="text" name="lastname" class="form-control" @auth
-                                        value="{{ Auth::user()->lastname }}" @else value="{{ old('lastname') }}"
-                                        @endauth placeholder="Last Name" required>
-                                </div>
-                                @error('lastname')
-                                    <li class="text-danger">{{ $message }}</li>
-                                @enderror
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control" @auth
-                                    value="{{ Auth::user()->email }}" @else value="{{ old('email') }}" @endauth
-                                    placeholder="Email" required>
                             </div>
-                            @error('email')
-                                <li class="text-danger">{{ $message }}</li>
-                            @enderror
-                            <div class="form-group">
-                                <input type="tel" name="phone" class="form-control" @auth
-                                value="{{ Auth::user()->phone }}" @else value="{{ old('phone') }}" @endauth
-                                placeholder="Phone" required>
                         </div>
-                        @error('phone')
-                            <li class="text-danger">{{ $message }}</li>
-                        @enderror
-                        {{-- <div class="form-group">
-                                <input type="text" name="address" class="form-control" @auth  value="{{ Auth::user()->address }}" @endauth placeholder="Address">
-                            </div> --}}
-                        {{-- <div class="form-group">
-                                <textarea name="message" class="form-control" value="" placeholder="your message" rows="3">{{ old('message')}}</textarea>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid ">
+            <div class="row p-3 ">
+                <div class="col-md-12 mt-5 mb-3 ">
+                    <div class="line"><span>Available Properties</span></div>
+                </div>
+            </div>
+            <div class="row px-md-5 px-2 px-sm-0 pt-3 ">
+                @foreach ($properties as $key => $property)
+                    @auth
+                        @php
+                            // dd($interestArr);
+                            if (in_array($property->id, $interestArr)) {
+                                $prop_id = array_search($property->id, $interestArr);
+                                // dd($prop_id);
+                            } else {
+                                $prop_id = '';
+                            }
+                        @endphp
+                    @endauth
+                    <div class="col-md-3 col-sm-6 col-12 px-4">
+                        <div class="card card-p">
+                            <div class="row joop "
+                                style="background-image: url({{ asset('storage/properties/cover_images/' . $property->cover_photo) }});">
+                                <div class="col-12 ">
+                                    <div class="row joop-1 mt-3 ml-3 ">
+                                        @if ($property->list_type == 'rent')
+                                            <span
+                                                class="badge badge-danger mb-4">{{ ucfirst($property->list_type) }}</span>
+                                        @else
+                                            <span
+                                                class="badge badge-success mb-4">{{ ucfirst($property->list_type) }}</span>
+                                        @endif
+
+                                    </div>
+                                    <div class="row joop-2 ml-3 ">
+                                        <span
+                                            class="badge badge-success mb-4 ">₦{{ number_format($property->price) }}</span>
+                                    </div>
+                                </div>
                             </div>
-                            @error('message')
-                            <li class="text-danger">{{ $message }}</li>
-                            @enderror --}}
-                        {{-- <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">{{ $property->code }}</span>
-                              </div>
-                              <input type="text" class="form-control" name="code" value="{{ $property->code }}" placeholder="Enter the code here" aria-label="Username" aria-describedby="basic-addon1" required>
-                            </div> --}}
-                        <input type="hidden" class="form-control" name="code" value="{{ $property->code }}"
-                            placeholder="Enter the code here" aria-label="Username" aria-describedby="basic-addon1">
-                        @error('code')
-                            <li class="text-danger">{{ $message }}</li>
-                        @enderror
-                        {{-- @guest
-                                <div class="form-group">
-                                    <input type="password" name="password" class="form-control" placeholder="Create Password" required>
-                                </div>
-                                @error('password')
-                            <li class="text-danger">{{ $message }}</li>
-                            @enderror
-                                <div class="form-group">
-                                    <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
-                                </div>
+                            <div class="row" style="background-color: white;">
+                                <div class="col-12 ">
+                                    <div class="row joop-7 justify-content-center">
+                                        <!-- <i class="fa fa-comment"></i> -->
+                                    </div>
+                                    <div class="row joop-3 justify-content-center">
+                                        @if ($property->property_type == 'building')
 
-                            @endguest --}}
-                        <div class="form-group">
-                            @guest <small>Your message will be sent automatically after your registration
-                                @endguest</small>
-                            <button class="btn btn-primary btn-lg btn-block">@guest Register & @endguest Send
-                                message</button>
+                                            <div class="col-4 pt-3 text-left">
+                                                <i class="fa fa-bed text-dark"></i> <span
+                                                    class="text-dark">{{ $property->beds }} beds</span>
+                                            </div>
+                                            <div class="col-4 pt-3 text-left">
+                                                <i class="fa fa-bath text-dark"></i> <span
+                                                    class="text-dark">{{ $property->baths }} baths</span>
+                                            </div>
+                                            <div class="col-4 pt-3 text-left">
+                                                <i class="fa fa-bath text-dark"></i> <span
+                                                    class="text-dark">{{ $property->baths }}toilets</span>
+                                            </div>
+
+                                        @else
+
+                                            <div>
+                                                <i class="fa fa-floor text-dark"></i> <span
+                                                    class="text-dark"></span>{{ $property->area }}sqft
+                                            </div>
+                                        @endif
+
+                                        <div class="col-12 text-center">
+                                            <h4 class="mt-3">{{ $property->title }}</h4>
+                                        </div>
+
+                                    </div>
+                                    <div class="row joop-4 justify-content-center">
+                                        <div class="col-12 py-2">
+                                            <p><i class="fa fa-map-marker-alt text-dark"></i> {{ $property->location }},
+                                                {{ $property->city }}</p>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row joop-6 mt-2 mb-3">
+                                        <div class="col-6 text-center">
+                                            @guest
+                                                <button class="btn btn-navy" type="button " data-toggle="modal"
+                                                    data-target="#like-prop-{{ $property->id }}">Like <i
+                                                        class="fa fa-heart"></i>
+                                                </button>
+                                            @else
+                                                @if ($prop_id > 0)
+                                                    <button type="button"
+                                                        class="btn btn-danger curve-btn property-actions"><span
+                                                            class="unlike-prop text-white" id="like-{{ $property->id }}"
+                                                            code="{{ $property->code }}"
+                                                            prop-id="{{ $prop_id }}">Unlike <i
+                                                                class="fa fa-thumbs-down"></i></span>
+                                                    </button>
+                                                @else
+                                                    <button type="button"
+                                                        class="btn btn-warning curve-btn property-actions"><span
+                                                            class="like-prop text-white" id="like-{{ $property->id }}"
+                                                            code="{{ $property->code }}" prop-id="{{ $prop_id }}">Like
+                                                            <i class="fa fa-heart"></i></span>
+                                                    </button>
+                                                @endif
+                                            @endguest
+                                        </div>
+                                        <div class="col-6 text-center button-2">
+                                            <a href="{{ route('property-detail', $property->slug) }}"
+                                                class="btn btn-success" type="button">View</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    {{-- Modal --}}
+                    <div class="modal fade" id="like-prop-{{ $property->id }}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h5 class="text-center">Fill in your details. </h5>
+                                    <small class="text-center">Or <a href="{{ route('login') }}"
+                                            style="font-weight: bold;">Login</a> for a better
+                                        experience</small>
+                                    <form action="{{ route('send-message') }}" method="post">
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="text" name="firstname" class="form-control" @auth
+                                                value="{{ Auth::user()->firstname }}" @else
+                                                value="{{ old('firstname') }}" @endauth placeholder="First Name"
+                                                required>
+                                        </div>
+                                        @error('firstname')
+                                            <li class="text-danger">{{ $message }}</li>
+                                        @enderror
+                                        <div class="form-group">
+                                            <input type="text" name="lastname" class="form-control" @auth
+                                                value="{{ Auth::user()->lastname }}" @else
+                                                value="{{ old('lastname') }}" @endauth placeholder="Last Name" required>
+                                        </div>
+                                        @error('lastname')
+                                            <li class="text-danger">{{ $message }}</li>
+                                        @enderror
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" @auth
+                                                value="{{ Auth::user()->email }}" @else value="{{ old('email') }}"
+                                                @endauth placeholder="Email" required>
+                                        </div>
+                                        @error('email')
+                                            <li class="text-danger">{{ $message }}</li>
+                                        @enderror
+                                        <div class="form-group">
+                                            <input type="tel" name="phone" class="form-control" @auth
+                                                value="{{ Auth::user()->phone }}" @else value="{{ old('phone') }}"
+                                                @endauth placeholder="Phone" required>
+                                        </div>
+                                        @error('phone')
+                                            <li class="text-danger">{{ $message }}</li>
+                                        @enderror
+
+                                        <input type="hidden" class="form-control" name="code"
+                                            value="{{ $property->code }}" placeholder="Enter the code here"
+                                            aria-label="Username" aria-describedby="basic-addon1">
+                                        @error('code')
+                                            <li class="text-danger">{{ $message }}</li>
+                                        @enderror
+
+                                        <div class="form-group">
+                                            @guest <small>Your message will be sent automatically after your registration
+                                                @endguest</small>
+                                            <button class="btn btn-primary btn-lg btn-block">@guest Register & @endguest
+                                                Send
+                                                message</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
 
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    {{-- End Modal --}}
+                @endforeach
 
-                </div>
+
+            </div>
+            <div class="text-center col-12 justify-content-center">
+                {{ $properties->links() }}
             </div>
 
-
-                </div>
-            </div>
-        @endforeach
-</section>
+        </div>
+    </section>
 @endsection

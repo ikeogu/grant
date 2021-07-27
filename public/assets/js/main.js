@@ -25,7 +25,7 @@
 
 	// loader
 	var loader = function() {
-		setTimeout(function() { 
+		setTimeout(function() {
 			if($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
@@ -115,19 +115,19 @@
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
+			}
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+					navbar.addClass('awake');
 				}
-				
+
 				if(sd.length > 0) {
 					sd.addClass('sleep');
 				}
@@ -147,7 +147,7 @@
 
 
 	var counter = function() {
-		
+
 		$('#section-counter, .hero-wrap, .ftco-counter').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -164,7 +164,7 @@
 					  }, 7000
 					);
 				});
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -178,7 +178,7 @@
 		$('.ftco-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -200,9 +200,9 @@
 							el.removeClass('item-animate');
 						},  k * 50, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -266,7 +266,7 @@
             	}
               $this.parent().parent().remove();
               flashMessage('danger', 'removed');
-                
+
             },
 
             error: function(XMLHttpRequest, textStatus, errorThrown){
@@ -279,7 +279,7 @@
   });
 
 
-  $('.property-actions').click(function(){
+    $('.property-actions').click(function () {
   	var child = $(this).find('.like-prop');
   	if (child.length==1) {
 		  	var code =child.attr('code');
@@ -316,12 +316,13 @@
 		            }
 		         });
   	}
-  	
+
   });
 
 
 
-  $('.property-actions').click(function(){
+    $('.property-actions').click(function () {
+
   	var child = $(this).find('.unlike-prop');
   	if (child.length==1) {
 	  	var targetId = child.attr('prop-id');
@@ -339,7 +340,7 @@
 
 	            },
 	            success: function (response) {
-	            	
+
 	            		child.html('like <i class="fa fa-heart"></i>');
 	             		$this.removeAttr('disabled');
 	             		child.removeClass('unlike-prop');
@@ -347,7 +348,7 @@
 	             		var wishlist_count = parseInt($('.wishlist-count').text());
 	             		console.log(wishlist_count);
 	                	$('.wishlist-count').text(wishlist_count-1);
-	                
+
 	            },
 
 	            error: function(XMLHttpRequest, textStatus, errorThrown){

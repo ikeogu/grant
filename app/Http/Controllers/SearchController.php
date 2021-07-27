@@ -14,7 +14,7 @@ class SearchController extends Controller
 		$this->sanitize = new SanitizeInput;
 	}
 
-    public function searchPropertyOld(Request $request){	
+    public function searchPropertyOld(Request $request){
 
 	        $answer= $request->search;
 
@@ -91,7 +91,7 @@ class SearchController extends Controller
 
     	 Session(['prev_page'=>$request->url()]);
     	$keyword=$request->keyword;
-    	
+
     	$list_type=$request->list_type;
 
         $city=$request->city;
@@ -102,7 +102,7 @@ class SearchController extends Controller
 
         $min_price=$request->min_price;
 
-        $data['properties'] = Property::where('title','LIKE','%'.$keyword.'%')->orWhere('description','LIKE','%'.$keyword.'%')->where('city','LIKE','%'.$city.'%')->where('location','LIKE','%'.$locality.'%')->where('price','>=', $min_price)->where('price','<=', $max_price)->paginate(12);
+        $data['properties'] = Property::where('title','LIKE','%'.$keyword.'%')->orWhere('description','LIKE','%'.$keyword.'%')->orWhere('list_type','LIKE','%'.$list_type.'%')->orwhere('city','LIKE','%'.$city.'%')->orwhere('location','LIKE','%'.$locality.'%')->orwhere('price','>=', $min_price)->orwhere('price','<=', $max_price)->paginate(12);
 
         $data['beds']= DB::select("SELECT DISTINCT beds FROM properties WHERE beds > 0 ORDER BY beds ASC ");
         return view('property.index')->with($data);

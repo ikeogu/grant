@@ -1,376 +1,232 @@
-@extends('layouts.front')
+@extends('layouts.app')
 
 @section('content')
-@section('title', 'Real Estate')
-    <section class="hero-wrap hero-wrap-2"
-        style="background-image: url({{ asset('assets/images/bg_1.jpg') }}); background-position: center;"
-        data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-                <div class="col-md-9 ftco-animate pb-0 text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                                    class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a
-                                href="{{ route('properties') }}">Properties <i class="fa fa-chevron-right"></i></a></span>
-                        <span>Property detail</span>
-                    </p>
-                    <h1 class="mb-3 bread">Property Details</h1>
+
+    <section class="mht-1">
+        <div class="container mt-3 ">
+            <div class="row p-5 mt-3">
+                <div class="col-sm-12 col-md-6 mt-3">
+                    <div id="myCarousel" class="carousel slide shadow">
+                        <!-- main slider carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active carousel-item" data-slide-number="0">
+                                <img src="{{ asset('storage/properties/cover_images/' . $property->cover_photo) }}"
+                                    class="img-fluid">
+                            </div>
+                            @foreach ($property->otherPhotos as $key => $item)
+                                <div class="carousel-item" data-slide-number="{{ $key }}">
+                                    <img src="{{ asset('storage/properties/other_photos/' . $item->photo) }}"
+                                        class="img-fluid">
+                                </div>
+                            @endforeach
+
+                            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+
+                        </div>
+                        <!-- main slider carousel nav controls -->
+
+
+                        <ul class="carousel-indicators list-inline mx-auto border px-2">
+                            <li class="list-inline-item active">
+                                <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
+                                    <img src="{{ asset('storage/properties/cover_images/' . $property->cover_photo) }}"
+                                        alt="" class="img-fluid">
+                                </a>
+                            </li>
+
+                            @foreach ($property->otherPhotos as $key => $item)
+                                <li class="list-inline-item">
+                                    <a id="carousel-selector-{{ $key + 1 }}" data-slide-to="{{ $key + 1 }}"
+                                        data-target="#myCarousel">
+                                        <img src="{{ asset('storage/properties/other_photos/' . $item->photo) }}" alt=""
+                                            class="img-fluid" >
+                                    </a>
+                                </li>
+                            @endforeach
+
+                        </ul>
+                    </div>
                 </div>
+
+                <div class="col-sm-12 col-md-6  jumbotron  ">
+                    <div class=" row px-2 pt-2 pb-0 ">
+                        <div class="col-6">
+
+                           <div><span class="yht-1 text-uppercase">  {{ $property->list_type }}: N{{ number_format($property->price) }}</span></div>
+                            <div><span class="yht-1">Agency: N45,000</span></div>
+                            <div><span class="yht-1">Legal Fee: N22,500</span></div>
+                            <div>
+                                <h4 class="text-success">Total: N{{ number_format($property->price) }}</h4>
+                            </div>
+
+                        </div>
+                        <div class="col-6">
+                            <div class="row ">
+                                <div class="col-4">
+                                    <div class="text-center font-weight-bold uvh"><span>Bedroom</span></div>
+                                    <div class="text-center uvh"><strong>{{ $property->beds }}</strong></div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="text-center font-weight-bold uvh"><span>Toilet</span></div>
+                                    <div class="text-center uvh "><strong>{{ $property->baths }}</strong></div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="text-center font-weight-bold uvh"><span>Baths</span></div>
+                                    <div class="text-center uvh "><strong>{{ $property->baths }}</strong></div>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <span class="font-weight-bold uvh">House Code</span>
+                                    <div class="badge badge-dark p-2 uvh-2 mx-3">{{ $property->code }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-2">
+                    <div class="row mb-0 pt-2 pb-0">
+                        <div class="col-4">
+                            <div class="text-center uvh"><span class="font-weight-bold">HOME TYPE</span></div>
+                            <div class="text-center uvh"><span>{{ $property->house_type }}</span></div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center uvh">
+                                <span class="font-weight-bold"> LOCATION</span>
+                            </div>
+                            <div class="text-center uvh">
+                                <p> N{{ $property->location }}</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="badge badge-success p-2 uvh mx-3 ">For {{ $property->list_type }}</div>
+                        </div>
+                    </div>
+                    <hr class="my-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center vvh-1">
+                                <h2>Description</h2>
+                            </div>
+                            <div class="text-center vvh-1 mb-0 pb-0">
+                                <p>{{ $property->description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="form-contact-agent" action="{{ route('pay') }}" method="post">
+
+                        <div class="form-group">
+                            <input type="hidden" name="amount" class="form-control" value="{{ $property->price }}"
+                                readonly>
+                        </div>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="prop_id" value="{{ $property->id }}">
+                        <p>
+                            <button class="btn btn-success btn-sm btn-block" type="submit" value="Pay Now!">
+                                <i class="fa  fa-sm"></i> Pay Now!
+                            </button>
+                        </p>
+                    </form>
+                </div>
+
+
             </div>
         </div>
     </section>
-    @include('layouts.shared.alert')
-    <section class="ftco-section ftco-property-details">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 border py-3">
-                    <div class="property-details">
-                        <div class="img"
-                            style="background-image: url({{ asset('storage/properties/cover_images/' . $property->cover_photo) ?? '' }})">
-                            <a href="https://vimeo.com/45830194"
-                                class="img-video popup-vimeo d-flex align-items-center justify-content-center">
-                                <span class="fa fa-play"></span>
-                            </a>
-                        </div>
+    <hr class="my-0 mht-1 ">
 
+    <section class="mht-1  p-2">
+        <div class="container p-1 mb-5 mt-4 vht-3">
+            <div class="row p-4 m-0">
+                <div class="col-lg-4">
+                    <div class="row justify-content-center mt-5 mb-0">
+                        <h3 class="h4 text-black">Call Agent</h3>
                     </div>
-                    <div class="row">
-                        @foreach ($property->otherPhotos as $pic)
-                            @if (!empty($pic->photo))
-                                <div class="col-md-3 col-sm-4 col-6 p-1">
-                                    {{-- <a href="{{ asset('storage/properties/other_photos/'.$pic->photo) }}" rel="prettyPhoto[{{ $property->title }}]" title="Other pictures.">
-                        <div style="background-image: url({{ asset('storage/properties/other_photos/'.$pic->photo) }});" style="width: 100%; height: 250px;">
-
+                    <div class="row justify-content-center mt-5">
+                        <div class="">
+                            <span class="badge badge-warning p-3">08083549952</span>
+                            <span></span>
+                            <span class="badge-dark badge hst-1 p-3"><a href="" class="text-white"><i
+                                        class="fa fa-phone fa-faw "></i></a> </span>
                         </div>
-                        </a> --}}
-                                    <a href="{{ asset('storage/properties/other_photos/' . $pic->photo) }}"
-                                        rel="prettyPhoto[{{ $property->title }}]" title="Other pictures."><img
-                                            src="{{ asset('storage/properties/other_photos/' . $pic->photo) }}"
-                                            style="width: 100%; height: 200px;"></a>
-
+                    </div>
+                </div>
+                <div class="col-lg-8 her p-1">
+                    <div class="row justify-content-center mt-3 ">
+                        <h3 class="h4 text-black">CONTACT AN AGENT</h3>
+                    </div>
+                    <form class="form-contact-agent" action="#" method="post">
+                        <div class="row justify-content-center">
+                            <div class="col-3 p-2">
+                                <div class="input-group cx-prepend my-3 ">
+                                    <div class="input-group-prepend cx-prepen ">
+                                        <i class="fa fa-user my-2  mx-2"></i>
+                                    </div>
+                                    <input type="text" name="firstname" class="form-control" @auth
+                                        value="{{ Auth::user()->firstname }}" @else value="{{ old('firstname') }}"
+                                        @endauth placeholder="First Name">
+                                    @error('firstname')
+                                        <li class="text-danger">{{ $message }}</li>
+                                    @enderror
                                 </div>
-                            @endif
-                        @endforeach
-                    </div>
+                            </div>
 
-                </div>
-                <div class="col-md-4 text-left px-5">
-                    <h4 style="font-weight: bold;">Contact Your Agent</h4>
-                    <p><span><i class="fa fa-phone"></i> 090988847474</span></p>
-                    <p><span><i class="fa fa-envelope"></i> contact@agency.com</span></p>
+                            <div class="col-3 p-2">
+                                <div class="input-group cx-prepend my-3 ">
+                                    <div class="input-group-prepend cx-prepen ">
+                                        <i class="fa fa-envelope my-2  mx-2"></i>
+                                    </div>
+                                    <input type="email" name="email" class="form-control" @auth
+                                    value="{{ Auth::user()->email }}" @else value="{{ old('email') }}" @endauth
+                                    placeholder="Email">
 
-                    <form action="{{ route('pay') }}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <input type="text" name="firstname" class="form-control" @auth
-                            value="{{ Auth::user()->firstname }}" @else value="{{ old('firstname') }}" @endauth
-                            placeholder="First Name">
-                    </div>
-                    @error('firstname')
-                        <li class="text-danger">{{ $message }}</li>
-                    @enderror
-                    <div class="form-group">
-                        <input type="text" name="lastname" class="form-control" @auth
-                        value="{{ Auth::user()->lastname }}" @else value="{{ old('lastname') }}" @endauth
-                        placeholder="Last Name">
-                </div>
-                @error('lastname')
-                    <li class="text-danger">{{ $message }}</li>
-                @enderror
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" @auth value="{{ Auth::user()->email }}"
-                    @else value="{{ old('email') }}" @endauth placeholder="Email">
-            </div>
-            @error('email')
-                <li class="text-danger">{{ $message }}</li>
-            @enderror
-            <div class="form-group">
-                <input type="tel" name="phone" class="form-control" @auth value="{{ Auth::user()->phone }}"
-                @else value="{{ old('phone') }}" @endauth placeholder="Phone">
-        </div>
-        @error('phone')
-            <li class="text-danger">{{ $message }}</li>
-        @enderror
-        <div class="form-group">
-            <input type="text" name="address" class="form-control" @auth
-                value="{{ Auth::user()->address }}" @endauth placeholder="Address">
-        </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">{{ $property->code }}</span>
-            </div>
-            <input type="text" class="form-control" name="code" value="{{ $property->code }}"
-                placeholder="Enter the code here" aria-label="Username" aria-describedby="basic-addon1"
-                required>
-        </div>
-        @error('code')
-            <li class="text-danger">{{ $message }}</li>
-        @enderror
-        <div class="form-group">
-            <input type="number" name="amount" class="form-control" value="{{ $property->price }}"
-                readonly>
-        </div>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="prop_id" value="{{ $property->id }}">
-        @guest
-            <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Create Password">
-            </div>
-            @error('password')
-                <li class="text-danger">{{ $message }}</li>
-            @enderror
-            <div class="form-group">
-                <input type="password" name="password_confirmation" class="form-control"
-                    placeholder="Confirm Password">
-            </div>
-
-        @endguest
-        {{-- <div class="form-group">
-            @guest <small>Your message will be sent automatically after your registration @endguest</small>
-            <button class="btn btn-primary btn-lg btn-block">@guest Register & @endguest Send
-                message</button>
-        </div> --}}
-        <p>
-            <button class="btn btn-success btn-lg btn-block" type="submit" value="Pay Now!">
-                <i class="fa  fa-lg"></i> Pay Now!
-            </button>
-        </p>
-    </form>
-
-
-</div>
-</div>
-<div class="row">
-<div class="col-md-12 pills">
-    <div class="bd-example bd-example-tabs">
-        <div class="d-flex">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-
-                <li class="nav-item">
-                    <a class="nav-link active" id="pills-description-tab" data-toggle="pill"
-                        href="#pills-description" role="tab" aria-controls="pills-description"
-                        aria-expanded="true">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill"
-                        href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer"
-                        aria-expanded="true">Description</a>
-                </li>
-                {{-- <li class="nav-item">
-                                  <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">Review</a>
-                                </li> --}}
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-location-tab" data-toggle="pill" href="#pills-location"
-                        role="tab" aria-controls="pills-location" aria-expanded="true">Location</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-description" role="tabpanel"
-                aria-labelledby="pills-description-tab">
-                <div class="row">
-                    <div class="col-md-4">
-                        <ul class="features">
-                            <li class="check"><span class="fa fa-check-circle"></span>Lot Area:
-                                @php echo (int)($property->area>0)? number_format($property->area).' SQ FT' : 'N/A' @endphp</li>
-
-                            <li class="check"><span class="fa fa-check-circle"></span>Bed Rooms:
-                                @php echo (int)($property->beds>0)? number_format($property->beds) : 'N/A' @endphp </li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Bath Rooms:
-                                @php echo (int)($property->baths>0)? number_format($property->baths) : 'N/A' @endphp </li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Luggage</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Garage: 2</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="features">
-                            <li class="check"><span class="fa fa-check-circle"></span>Floor Area: 1,300 SQ
-                                FT</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Year Build:: 2019</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Water</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Stories: 2</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Roofing: New</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="features">
-                            <li class="check"><span class="fa fa-check-circle"></span>Floor Area: 1,300 SQ
-                                FT</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Year Build:: 2019</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Water</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Stories: 2</li>
-                            <li class="check"><span class="fa fa-check-circle"></span>Roofing: New</li>
-                        </ul>
+                            </div>
+                            @error('email')
+                                <li class="text-danger">{{ $message }}</li>
+                            @enderror
+                        </div>
+                        <div class="col-3 p-2">
+                            <div class="input-group cx-prepend my-3 ">
+                                <div class="input-group-prepend cx-prepen ">
+                                    <i class="fa fa-mobile my-2  mx-2"></i>
+                                </div>
+                                <input type="tel" name="phone" class="form-control" @auth
+                                value="{{ Auth::user()->phone }}" @else value="{{ old('phone') }}" @endauth
+                                placeholder="Phone">
+                        </div>
+                        @error('phone')
+                            <li class="text-danger">{{ $message }}</li>
+                        @enderror
                     </div>
                 </div>
-            </div>
 
-            <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel"
-                aria-labelledby="pills-manufacturer-tab">
-                {{ $property->description }}
-            </div>
+                <div class="row justify-content-center">
 
-            <div class="tab-pane fade" id="pills-location" role="tabpanel"
-                aria-labelledby="pills-location-tab">
-                <div class="row">
-                    <div class="col-md-8 0ffset-md-2">
-                        <h3 class="head">Map</h3>
-                        <div class="mt-3">
-                            <iframe width="100%" height="400" frameborder="0" scrolling="no"
-                                marginheight="0" marginwidth="0"
-                                src="https://maps.google.com/maps?width=100%25&amp;height=200&amp;hl=en&amp;q={{ urlencode($property->address) }}+({{ urlencode($property->location) }})&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h3 class="head">23 Reviews</h3>
-                        <div class="review d-flex">
-                            <div class="user-img"
-                                style="background-image: url({{ asset('assets/images/person_1.jpg') }})">
-                            </div>
-                            <div class="desc">
-                                <h4>
-                                    <span class="text-left">Jacob Webb</span>
-                                    <span class="text-right">14 March 2018</span>
-                                </h4>
-                                <p class="star">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span class="text-right"><a href="#" class="reply"><i
-                                                class="fa fa-reply"></i></a></span>
-                                </p>
-                                <p>When she reached the first hills of the Italic Mountains, she had a last
-                                    view back on the skyline of her hometown Bookmarksgrov</p>
-                            </div>
-                        </div>
-                        <div class="review d-flex">
-                            <div class="user-img"
-                                style="background-image: url({{ asset('assets/images/person_2.jpg') }})">
-                            </div>
-                            <div class="desc">
-                                <h4>
-                                    <span class="text-left">Jacob Webb</span>
-                                    <span class="text-right">14 March 2018</span>
-                                </h4>
-                                <p class="star">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span class="text-right"><a href="#" class="reply"><i
-                                                class="fa fa-reply"></i></a></span>
-                                </p>
-                                <p>When she reached the first hills of the Italic Mountains, she had a last
-                                    view back on the skyline of her hometown Bookmarksgrov</p>
-                            </div>
-                        </div>
-                        <div class="review d-flex">
-                            <div class="user-img"
-                                style="background-image: url({{ asset('assets/images/person_3.jpg') }})">
-                            </div>
-                            <div class="desc">
-                                <h4>
-                                    <span class="text-left">Jacob Webb</span>
-                                    <span class="text-right">14 March 2018</span>
-                                </h4>
-                                <p class="star">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span class="text-right"><a href="#" class="reply"><i
-                                                class="fa fa-reply"></i></a></span>
-                                </p>
-                                <p>When she reached the first hills of the Italic Mountains, she had a last
-                                    view back on the skyline of her hometown Bookmarksgrov</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="rating-wrap">
-                            <h3 class="head">Give a Review</h3>
-                            <div class="wrap">
-                                <p class="star">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        (98%)
-                                    </span>
-                                    <span>20 Reviews</span>
-                                </p>
-                                <p class="star">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        (85%)
-                                    </span>
-                                    <span>10 Reviews</span>
-                                </p>
-                                <p class="star">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        (70%)
-                                    </span>
-                                    <span>5 Reviews</span>
-                                </p>
-                                <p class="star">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        (10%)
-                                    </span>
-                                    <span>0 Reviews</span>
-                                </p>
-                                <p class="star">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        (0%)
-                                    </span>
-                                    <span>0 Reviews</span>
-                                </p>
-                            </div>
+                    <div class="col-9">
+                        <div class="input-group cx-prapend my-1 ">
+                            <textarea class="form-contro" name="message" rows="3"
+                                placeholder="e.g Hi Agent, I am intrested in house RKZ33" rows="3"
+                                required=""></textarea>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="row justify-content-center">
+                    <div class="form-group mt-3">
+                        <button id="phone" class="btn btn-primary nth-2">Send <i
+                                class="fa fa-paper-plane fa-faw"></i></button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</div>
-</div>
 </div>
 </section>
 @endsection

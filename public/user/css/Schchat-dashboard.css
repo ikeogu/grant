@@ -40,18 +40,18 @@ body {
 .Schchat-list-group a {
     background: #fff!important;
     border: 0.05rem solid #f7f7f7!important;
-    color: #07055c !important;
+    color: #3ca114fa !important;
     font-weight: 500;
 }
 
 a.list-group-collapse {
-    color: #07055c!important;
+    color: #3ca114fa!important;
     font-weight: 400;
     background-color: #57575f;
 }
 
 .myActive.schchat-active {
-    color: #07055c!important;
+    color: #3ca114fa!important;
     background: #fff!important;
     border-left: solid 5px #f9a725!important;
     font-weight: 600;
@@ -96,12 +96,12 @@ a.list-group-collapse {
     height: 100%;
     object-fit: cover;
     font-size: 30px!important;
-    color: #07055c!important;
+    color: #3ca114fa!important;
 }
 
 .myFonts--size {
     font-size: 15px!important;
-    color: #07055c !important;
+    color: #3ca114fa !important;
     font-weight: 600;
 }
 
@@ -372,7 +372,7 @@ a.list-group-collapse {
 }
 
 .port {
-    color: #07055c !important;
+    color: #3ca114fa !important;
     font-weight: 600;
 }
 
@@ -457,13 +457,13 @@ a.list-group-collapse {
 }
 
 .page-item.active .page-link {
-    background-color: #07055c !important;
-    border-color: #07055c !important;
+    background-color: #3ca114fa !important;
+    border-color: #3ca114fa !important;
     color: #ffffff;
 }
 
 .page-link {
-    color: #07055c;
+    color: #3ca114fa;
     background-color: #ffffff;
 }
 
